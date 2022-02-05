@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+#include "exceptions.h"
 
 class LinkedList
 {
@@ -21,15 +22,3 @@ public:
 	void print();
 
 };
-
-class EmptyListException
-{
-public:
-	EmptyListException();
-	EmptyListException(std::string _text);
-	std::string what();
-
-private:
-	std::string text;
-};
-

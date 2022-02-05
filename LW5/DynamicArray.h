@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Dekanat.h"
+#include "exceptions.h"
 
 #define N 8
 
@@ -29,16 +30,3 @@ private:
 	bool resize(int new_size);
 
 };
-
-class EmptyArrayException
-{
-public:
-	EmptyArrayException();
-	EmptyArrayException(std::string _text);
-	std::string what();
-
-private:
-	std::string text;
-};
-
-
