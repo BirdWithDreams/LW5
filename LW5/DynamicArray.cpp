@@ -91,18 +91,3 @@ bool DynamicArray::resize(int new_size)
     return true;
 }
 
-EmptyArrayException::EmptyArrayException()
-{
-    text = "You can't pop from empty array";
-}
-
-EmptyArrayException::EmptyArrayException(std::string _text)
-{
-    text = _text;
-}
-
-std::string EmptyArrayException::what()
-{
-    return text;
-}
-

@@ -89,18 +89,3 @@ void LinkedList::print()
         std::cout << i->el;
     std::cout << std::endl;
 }
-
-EmptyListException::EmptyListException()
-{
-    text = "You can't pop item from empty list";
-}
-
-EmptyListException::EmptyListException(std::string _text)
-{
-    text = _text;
-}
-
-std::string EmptyListException::what()
-{
-    return text;
-}
