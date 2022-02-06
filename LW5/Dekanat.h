@@ -2,15 +2,15 @@
 #include <iostream>
 struct hours_of_work
 {
-    int opening_time;
-    int closing_time;
+    short opening_time;
+    short closing_time;
 };
 
 struct Dekanat
 {
-    int employee_cnt;
+    short employee_cnt;
     hours_of_work hours;
-    int productivity;
+    short productivity;
 };
 
 std::ostream& operator << (std::ostream& os, const Dekanat &el);

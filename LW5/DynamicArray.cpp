@@ -2,7 +2,7 @@
 
 bool DynamicArray::push_back(Dekanat el)
 {
-    if (size() == max_size)
+    if (size() == max_size - 1)
         if (!resize(max_size * 2))
             return false;
 
@@ -29,7 +29,11 @@ bool DynamicArray::push_front(Dekanat el)
         if (!resize(max_size * 2))
             return false;
 
-    --head %= max_size + 1;
+    head--;
+    head = head % (max_size + 1);
+    if (head < 0)
+        head += max_size + 1;
+
     array[head] = el;
     cur_size++;
     return true;
@@ -60,7 +64,7 @@ int DynamicArray::size()
 void DynamicArray::print()
 {
     std::cout << "\nThis array has: ";
-    for (int i = head; i < tail; ++i %= max_size + 1)
+    for (int i = head; i != tail; ++i, i %= (max_size + 1))
         std::cout << array[i];
     std::cout << std::endl;
 }
@@ -73,7 +77,7 @@ bool DynamicArray::resize(int new_size)
             new_array[i] = array[i];
     else
     {
-        for (int i = 0;i<tail;i++)
+        for (int i = 0; i < tail; i++)
             new_array[i] = array[i];
 
         int new_head = new_size + tail - max_size + 1;
@@ -81,6 +85,8 @@ bool DynamicArray::resize(int new_size)
             new_array[new_head + i] = array[head + i];
         head = new_head;
     }
+    delete[] array;
+    array = new_array;
     max_size = new_size;
     return true;
 }

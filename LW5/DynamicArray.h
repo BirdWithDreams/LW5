@@ -3,7 +3,7 @@
 #include "Dekanat.h"
 #include "exceptions.h"
 
-#define N 8
+#define N 64
 
 class DynamicArray
 {
